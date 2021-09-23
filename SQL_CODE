@@ -1,0 +1,28 @@
+BEGIN TRANSACTION;
+
+-- create a table
+CREATE TABLE Salary(DepNo int, Name char, Salary float);
+
+-- create second table
+CREATE TABLE DEP(DepNo int, Name char);
+
+-- insert Salary values
+INSERT INTO Salary VALUES (1, 'Jonas', 700);
+INSERT INTO Salary VALUES (1, 'Petras', 800);
+INSERT INTO Salary VALUES (1, 'Juozas', 650);
+INSERT INTO Salary VALUES (2, 'Onutė', 900);
+INSERT INTO Salary VALUES (2, 'Marytė', 700);
+INSERT INTO Salary VALUES (3, 'Tadas', 750);
+
+-- insert DEP values
+INSERT INTO DEP VALUES (1, 'Vilniaus');
+INSERT INTO DEP VALUES (2, 'Kauno');
+INSERT INTO DEP VALUES (3, 'Klaipėdos');
+INSERT INTO DEP VALUES (4, 'Šiaulių');
+
+--a)
+SELECT Salary FROM Salary GROUP BY Salary ORDER BY Salary DESC LIMIT 1, 1;
+--b)
+SELECT A.Name, Round(AVG(Salary),2) FROM DEP A INNER JOIN Salary B ON B.DepNo = A.DepNo GROUP BY A.DepNo ORDER BY AVG(salary) DESC;
+--c)
+SELECT Name, Salary FROM Salary Where  Name Like  'J%';
