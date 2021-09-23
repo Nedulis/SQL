@@ -25,4 +25,4 @@ SELECT Salary FROM Salary GROUP BY Salary ORDER BY Salary DESC LIMIT 1, 1;
 --b)
 SELECT A.Name, Round(AVG(Salary),2) FROM DEP A INNER JOIN Salary B ON B.DepNo = A.DepNo GROUP BY A.DepNo ORDER BY AVG(salary) DESC;
 --c)
-SELECT Name, Salary FROM Salary Where  Name Like  'J%';
+SELECT Name, Salary FROM Salary Where  Name LIKE  'J%';
